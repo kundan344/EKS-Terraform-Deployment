@@ -1,5 +1,5 @@
 terraform {
-  required_version = "~> 1.9.5"
+  required_version = "~> 1.9.3"
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -7,14 +7,14 @@ terraform {
     }
   }
   backend "s3" {
-    bucket         = "my-eks-bucket-for-state-lock"
+    bucket         = "my-ews-baket1"
     region         = "us-east-2"
     key            = "eks/terraform.tfstate"
-    dynamodb_table = "terraform-state-lock"
+    dynamodb_table = "Lock-Files"
     encrypt        = true
   }
 }
 
 provider "aws" {
-  region = var.aws-region
+  region  = var.aws-region
 }
